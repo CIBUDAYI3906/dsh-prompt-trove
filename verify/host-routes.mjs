@@ -38,7 +38,7 @@ function check(condition, message) {
   else failures.push(message)
 }
 
-const root = await mkdtemp(join(tmpdir(), 'dsh-prompt-shelf-routes-'))
+const root = await mkdtemp(join(tmpdir(), 'dsh-prompt-trove-routes-'))
 const workspaceRoot = join(root, 'work')
 // A project opts in with a `.dsh-prompts/` directory; a plain folder is not a group.
 await mkdir(join(workspaceRoot, 'ths', internals.GROUP_DIR_NAME), { recursive: true })

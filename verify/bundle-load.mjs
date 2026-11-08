@@ -29,7 +29,7 @@ import { registerHooks } from 'node:module'
 
 const here = dirname(fileURLToPath(import.meta.url))
 const PKG = join(here, '..')
-const PKG_NAME = 'dsh-prompt-shelf'
+const PKG_NAME = 'dsh-prompt-trove'
 
 /**
  * The installed dsh package directory. Derived from `which dsh` so the check

@@ -1,4 +1,4 @@
-# dsh-prompt-shelf — this bundle's configuration layer.
+# dsh-prompt-trove — this bundle's configuration layer.
 #
 # `dsh plugin add` appends the package to the profile's `dsh.profile.bundles`;
 # the launcher applies this patch when the profile boots. The row below mounts
@@ -9,10 +9,10 @@
 # `.dsh-prompts/` directory; each one becomes a group. The global library in
 # $DSH_HOME/prompts works without any configuration.
 # - insert:
-#     - id: dsh-prompt-shelf
-#       name: dsh-prompt-shelf
+#     - id: dsh-prompt-trove
+#       name: dsh-prompt-trove
 #       config:
 #         root: /absolute/path/to/your/projects
 - insert:
-    - id: dsh-prompt-shelf
-      name: dsh-prompt-shelf
+    - id: dsh-prompt-trove
+      name: dsh-prompt-trove

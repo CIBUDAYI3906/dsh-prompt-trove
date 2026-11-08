@@ -1,20 +1,20 @@
-# dsh-prompt-shelf
+# dsh-prompt-trove
 
 输入框里的「常用提示词」库：把**工作背景、业务背景、输出偏好**这类每次开新会话都要说一遍的内容，存成一段一段的 Markdown，点一下或打 `@` 就追加进输入框。
 
 **点条目 = 追加，不是覆盖。** 你已经写了半句需求，插入背景后那半句还在，两者之间空一行。
 
-![常用提示词面板](https://raw.githubusercontent.com/CIBUDAYI3906/dsh-prompt-shelf/main/assets/screenshot-2-panel.png)
+![常用提示词面板](https://raw.githubusercontent.com/CIBUDAYI3906/dsh-prompt-trove/main/assets/screenshot-2-panel.png)
 
 ## 安装
 
 ```sh
-dsh plugin --profile web add dsh-prompt-shelf
+dsh plugin --profile web add dsh-prompt-trove
 ```
 
 重启 `dsh web`。输入框工具行（回形针 / 工作区内修改旁边）会多一个「常用提示词」按钮：
 
-![输入框工具行里的按钮](https://raw.githubusercontent.com/CIBUDAYI3906/dsh-prompt-shelf/main/assets/screenshot-1-composer.png)
+![输入框工具行里的按钮](https://raw.githubusercontent.com/CIBUDAYI3906/dsh-prompt-trove/main/assets/screenshot-1-composer.png)
 
 桌面端同样可以装：在设置 → 插件里安装同名包，或在上架后用插件市场一键装。
 
@@ -37,7 +37,7 @@ dsh plugin --profile web add dsh-prompt-shelf
 
 ```yaml
 # ~/.dsh/profiles/web/cordis.patch.yml
-- id: dsh-prompt-shelf
+- id: dsh-prompt-trove
   config:
     root: /Users/you/code
 ```
@@ -106,7 +106,7 @@ root = /Users/you/code/alpha      # 单项目：项目自己含 .dsh-prompts/ �
 ## 卸载
 
 ```sh
-dsh plugin --profile web remove dsh-prompt-shelf
+dsh plugin --profile web remove dsh-prompt-trove
 ```
 
 你的 Markdown 文件不会被删除。

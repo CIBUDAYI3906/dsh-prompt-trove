@@ -9,7 +9,7 @@
  *     ├─ esbuild transpiles the JSX
  *     ├─ every import statement is rewritten onto the `require(name)` calls
  *     │  the loader's frozen module table resolves
- *     ├─ PromptShelf.module.css is scoped (every local class gets the `qp-`
+ *     ├─ PromptTrove.module.css is scoped (every local class gets the `qp-`
  *     │  prefix) and inlined
  *     └─ the result is wrapped in the loader shell, with the stylesheet
  *        inserted into `document.head` on load
@@ -29,7 +29,7 @@ const id = pkg.name
 const CLASS_PREFIX = 'qp-'
 
 /** The stylesheet's source file. */
-const STYLE_FILE = 'PromptShelf.module.css'
+const STYLE_FILE = 'PromptTrove.module.css'
 
 /** The readable source esbuild transpiles. */
 const SOURCE_FILE = 'client-source.jsx'
@@ -76,7 +76,7 @@ const IMPORT_RULES = [
     line: (line) => 'const { ' + importedNames(line) + ' } = require("@deepseek-ai/dsh-client-ui-primitives")',
   },
   {
-    match: /^import\s+css\s+from\s+['"]\.\/PromptShelf\.module\.css['"];?$/,
+    match: /^import\s+css\s+from\s+['"]\.\/PromptTrove\.module\.css['"];?$/,
     line: () => '',
   },
 ]

@@ -1,5 +1,5 @@
 /**
- * Host half of `dsh-prompt-shelf`.
+ * Host half of `dsh-prompt-trove`.
  *
  * The library is a set of Markdown files, one PER GROUP. Two kinds of group
  * exist:
@@ -36,7 +36,7 @@ import { basename, dirname, join, resolve, sep } from 'node:path'
 import Schema from '@deepseek-ai/schemastery'
 
 /** Route prefix owned by this package. */
-const PREFIX = '/dsh-prompt-shelf'
+const PREFIX = '/dsh-prompt-trove'
 
 /** Directory name each group's library lives under, inside its folder. */
 const GROUP_DIR_NAME = '.dsh-prompts'
@@ -471,7 +471,7 @@ function route(handler) {
       } catch (error) {
         const status = error instanceof QuickPromptError ? error.status : 500
         const message = error instanceof Error ? error.message : String(error)
-        if (status === 500) console.error('[dsh-prompt-shelf]', error)
+        if (status === 500) console.error('[dsh-prompt-trove]', error)
         await drain(req)
         if (!res.headersSent) sendJson(res, status, { ok: false, error: message })
       }
@@ -674,7 +674,7 @@ export function apply(ctx, config = {}) {
 
     ready.effect(
       () => () => { for (const dispose of disposers) dispose() },
-      'prompt-shelf: routes',
+      'prompt-trove: routes',
     )
   })
 }

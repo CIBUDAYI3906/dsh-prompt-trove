@@ -1,5 +1,5 @@
 /**
- * Source of `dsh-prompt-shelf`'s client bundle.
+ * Source of `dsh-prompt-trove`'s client bundle.
  *
  * Not loaded directly: `build.mjs` transpiles this file (JSX → `jsx` calls,
  * ESM → the loader's `require`) and wraps the result in the
@@ -45,13 +45,13 @@ const IconRefresh = IconRefreshOutlineMedium
 const IconSearch = IconSearchOutlineMedium
 const IconSkill = IconSkillOutlineMedium
 const IconTrash = IconTrashOutlineMedium
-import css from './PromptShelf.module.css'
+import css from './PromptTrove.module.css'
 
 /** Bundle id; must equal the package name the profile row composes. */
-export const PLUGIN_ID = 'dsh-prompt-shelf'
+export const PLUGIN_ID = 'dsh-prompt-trove'
 
 /** Host route prefix owned by this package's host half. */
-const PREFIX = '/dsh-prompt-shelf'
+const PREFIX = '/dsh-prompt-trove'
 
 /** Group name registered with the `@` trigger pipeline. */
 const TRIGGER_NAME = 'prompt'
@@ -730,9 +730,9 @@ async function slashCandidates(query) {
 export function apply(ctx) {
   ctx.effect(() => ctx.slots.inject('conversation.input.left', () => ctx.slots.register({
     name: 'conversation.input.left',
-    id: 'prompt-shelf',
+    id: 'prompt-trove',
     order: 10,
-  }, QuickPromptButton)), 'prompt-shelf: composer button')
+  }, QuickPromptButton)), 'prompt-trove: composer button')
 
   // The trigger pipeline's `@` source: the same library, no mouse.
   const triggers = ctx.get('inputTriggers')
@@ -758,6 +758,6 @@ export function apply(ctx) {
         // the caret on a fresh line, ready for the actual request.
         return { text: body + '\n' }
       },
-    }), 'prompt-shelf: mention source')
+    }), 'prompt-trove: mention source')
   }
 }

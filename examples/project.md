@@ -3,7 +3,7 @@
 <!--
 项目库的样子：<项目目录>/.dsh-prompts/<项目名>.md
 把这一份放到 <项目目录>/.dsh-prompts/ 下，并在 profile 的 cordis.patch.yml
-给 dsh-prompt-shelf 这一行加 config.root 指向项目或项目父目录。
+给 dsh-prompt-trove 这一行加 config.root 指向项目或项目父目录。
 -->
 
 ## 这个项目的技术栈

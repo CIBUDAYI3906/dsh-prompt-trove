@@ -6,7 +6,7 @@
 
 - Node 20+、npm 账号（[npmjs.com](https://www.npmjs.com)）、GitHub 账号；
 - 本机装好 `dsh`（验证安装用）；
-- 仓库名建议就叫 `dsh-prompt-shelf`。
+- 仓库名建议就叫 `dsh-prompt-trove`。
 
 ## 1. 本地过一遍
 
@@ -25,19 +25,19 @@ npm run owner <你的GitHub用户名>
 ```
 
 它会把 `package.json` 的 repository/homepage/bugs、README、本文件里的 `CIBUDAYI3906` 换掉，并把
-`submission/CIBUDAYI3906__dsh-prompt-shelf.yml` 改名成 `<用户名>__dsh-prompt-shelf.yml`。
+`submission/CIBUDAYI3906__dsh-prompt-trove.yml` 改名成 `<用户名>__dsh-prompt-trove.yml`。
 
 ## 3. 建仓库并推上去
 
-1. GitHub 上新建 **public** 仓库 `dsh-prompt-shelf`（不要勾 README/.gitignore/License，本地已经有）；
+1. GitHub 上新建 **public** 仓库 `dsh-prompt-trove`（不要勾 README/.gitignore/License，本地已经有）；
 2. 给仓库加 topic：`dsh-plugin`（目录审核会看）；
 3. 推代码：
 
 ```sh
 git init -b main
 git add .
-git commit -m "dsh-prompt-shelf 0.1.0"
-git remote add origin git@github.com:<用户名>/dsh-prompt-shelf.git
+git commit -m "dsh-prompt-trove 0.1.0"
+git remote add origin git@github.com:<用户名>/dsh-prompt-trove.git
 git push -u origin main
 ```
 
@@ -47,11 +47,11 @@ git push -u origin main
 
 ```sh
 npm pack
-export TEST_HOME=/tmp/dsh-prompt-shelf-test
+export TEST_HOME=/tmp/dsh-prompt-trove-test
 rm -rf "$TEST_HOME"
 DSH_HOME="$TEST_HOME" dsh --profile test --from-default-profile web --dump-config >/dev/null
-DSH_HOME="$TEST_HOME" dsh plugin --profile test add ./dsh-prompt-shelf-0.1.0.tgz
-DSH_HOME="$TEST_HOME" dsh --profile test --dump-config | grep -A2 dsh-prompt-shelf
+DSH_HOME="$TEST_HOME" dsh plugin --profile test add ./dsh-prompt-trove-0.1.0.tgz
+DSH_HOME="$TEST_HOME" dsh --profile test --dump-config | grep -A2 dsh-prompt-trove
 DSH_HOME="$TEST_HOME" dsh --profile test --port 49311 --no-open
 ```
 
@@ -69,7 +69,7 @@ DSH_WEB_URL="http://127.0.0.1:49311/?token=…" npm run e2e
 ```sh
 npm login
 npm publish --access public
-npm view dsh-prompt-shelf version
+npm view dsh-prompt-trove version
 ```
 
 - 发之前 `prepublishOnly` 会自动跑 `scripts/preflight.mjs`：还带 `CIBUDAYI3906` 占位符、`client.js` 的模块 id 和包名不一致、缺图标，都会在这里挡住。
@@ -82,7 +82,7 @@ npm view dsh-prompt-shelf version
 收录入口是 [awesome-dsh-plugin](https://github.com/awesome-dsh-plugin/awesome-dsh-plugin)：市场、目录站、DSH 0.2.1+ 的 Discover 都读它的数据。
 
 1. Fork 该仓库；
-2. 把 `submission/<owner>__dsh-prompt-shelf.yml` 原样放到 `data/plugins/` 下，**一个 PR 只加这一个文件**；
+2. 把 `submission/<owner>__dsh-prompt-trove.yml` 原样放到 `data/plugins/` 下，**一个 PR 只加这一个文件**；
 3. 提交 PR。
 
 CI 会检查：
@@ -99,7 +99,7 @@ PR 描述里讲清楚差异即可：**两层库（全局 + 项目）、Markdown 
 ## 7. 合并之后
 
 - 站点自动重建；`dsh-market` 每天刷新 `plugins.json`；
-- 用户安装：`dsh plugin --profile web add dsh-prompt-shelf`，或在市场/Discover 里一键装；
+- 用户安装：`dsh plugin --profile web add dsh-prompt-trove`，或在市场/Discover 里一键装；
 - 想改描述或截图，改自己的仓库再提 PR（截图放在仓库根 `screenshots.json` 里声明，不用来提 PR）。
 
 ## 8. 版本与更新
@@ -117,7 +117,7 @@ GitHub Release 打 `v<version>` 标签即可（目录的 `tarball:` 字段是可
 也可以，目录接受 GitHub-only 条目：
 
 ```sh
-dsh plugin --profile web add github:<用户名>/dsh-prompt-shelf
+dsh plugin --profile web add github:<用户名>/dsh-prompt-trove
 ```
 
 本仓库的 `client.js` 是提交进仓库的构建产物，不需要 `prepare` 脚本，用户不用额外授权构建。
